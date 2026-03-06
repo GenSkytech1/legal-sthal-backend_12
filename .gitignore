@@ -1,0 +1,75 @@
+
+# Laravel
+/vendor
+/node_modules
+/public/storage
+/storage/*.key
+/.idea
+/.vscode
+Homestead.yaml
+Homestead.json
+.env
+.env.*.backup
+.phpunit.result.cache
+
+# Cache & Logs
+/storage/logs
+/storage/framework/cache
+/storage/framework/sessions
+/storage/framework/views
+/storage/framework/testing
+bootstrap/cache/*.php
+storage/app/firebase-key.json
+
+# Composer & npm debug
+composer.lock
+npm-debug.log
+yarn-error.log
+pnpm-debug.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+desktop.ini
+
+# IDE / Editor
+*.sublime-workspace
+*.sublime-project
+*.code-workspace
+
+# Misc
+*.bak
+*.tmp
+*.swp
+*.zip
+
+
+# Laravel build / frontend
+/public/build
+/public/hot
+/public/mix-manifest.json
+/public/bootstrap
+/public/uploads
+/public/storage
+
+# Laravel cache (extra safety)
+bootstrap/cache/*.php
+bootstrap/cache/*.json
+
+# Storage (keep .gitignore inside)
+/storage/app/*
+!/storage/app/.gitignore
+
+# PHP
+*.log
+
+# Environment
+.env.testing
+.env.production
+.env.local
+
+# IDE extras
+.idea/
+.vscode/

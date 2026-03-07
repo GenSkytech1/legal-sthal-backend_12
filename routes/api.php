@@ -9,8 +9,13 @@ use App\Http\Controllers\API\Service\ServiceController;
 use App\Http\Controllers\API\Service\PlanController;
 
 
+use App\Http\Controllers\Api\LeadController;
+
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
+
+// Public Lead Submission
+Route::post('/leads', [LeadController::class, 'store']);
 
 Route::get('/company-settings', [CompanySettingController::class, 'index']);
 Route::get('/website-content', [WebsiteContentController::class, 'index']);
@@ -19,6 +24,7 @@ Route::get('/custom-pages/{id}', [CustomPageController::class, 'show']);
 Route::get('/custom-pages/slug/{slug}', [CustomPageController::class, 'findBySlug']);
 
 Route::middleware(['jwt.cookie', 'auth:api'])->group(function () {
+    Route::get('/leads', [LeadController::class, 'index']);
     Route::post('/website-content', [WebsiteContentController::class, 'store']);
     Route::post('/company-settings', [CompanySettingController::class, 'store']);
     

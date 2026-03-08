@@ -4,6 +4,7 @@ namespace App\Services\Meta;
 
 use App\Jobs\Meta\FetchMetaLeadJob;
 use Illuminate\Http\Request;
+use Log;
 
 class MetaLeadWebhookService
 {
@@ -21,6 +22,7 @@ class MetaLeadWebhookService
     public function handleWebhook(Request $request): void
     {
         $entry = $request->input('entry.0.changes.0.value');
+        Log::info('Received Meta webhook with payload: ' . json_encode($entry));
 
         if (!isset($entry['leadgen_id'])) {
             return;

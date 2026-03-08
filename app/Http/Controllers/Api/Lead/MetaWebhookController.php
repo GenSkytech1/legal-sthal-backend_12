@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Lead;
 use App\Http\Controllers\Controller;
 use App\Services\Meta\MetaLeadWebhookService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log; 
 
 class MetaWebhookController extends Controller
 {
@@ -29,7 +30,7 @@ class MetaWebhookController extends Controller
     public function handle(Request $request)
     {
         $this->service->handleWebhook($request);
-
+        Log::info('Meta webhook received and processed successfully.');
         return response()->json(['success' => true]);
     }
 }

@@ -12,6 +12,7 @@ class CustomPage extends Model
     protected $fillable = [
         'slug',
         'title',
+        'status',
         'hero_title',
         'hero_price',
         'hero_subtitle',

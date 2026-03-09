@@ -22,7 +22,8 @@ return [
      'allowed_origins' => [
         'http://localhost:3000', 
         'http://127.0.0.1:3000',
-        'https://legal-sthal-oie4.vercel.app'
+        'https://legal-sthal-oie4.vercel.app',
+        'https://legal-sthal-web-kkrdhg4lr-genskytech1s-projects.vercel.app'
     ],
 
     'allowed_origins_patterns' => [],

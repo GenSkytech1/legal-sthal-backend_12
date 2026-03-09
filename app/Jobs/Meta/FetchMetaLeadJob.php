@@ -9,6 +9,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Http;
+use Log;
 
 class FetchMetaLeadJob implements ShouldQueue
 {
@@ -42,7 +43,7 @@ class FetchMetaLeadJob implements ShouldQueue
         }
 
         $data = $response->json();
-
+        Log::info('Fetched Meta lead data: ' . json_encode($data)); 
         $fields = collect($data['field_data'] ?? [])
             ->mapWithKeys(fn ($f) => [$f['name'] => $f['values'][0]]);
 
@@ -63,7 +64,8 @@ class FetchMetaLeadJob implements ShouldQueue
                 'custom_fields' => $fields,
                 'raw_payload'   => $data,
             ]
-        );
+        ); 
+        Log::info('Meta lead saved successfully with platform_lead_id: ' . $this->leadId);
     }
 }
 

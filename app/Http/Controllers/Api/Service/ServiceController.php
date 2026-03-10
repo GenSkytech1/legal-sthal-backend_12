@@ -33,10 +33,13 @@ class ServiceController extends Controller
         $request->validate([
             'service_name' => 'required|string|max:255',
             'description' => 'nullable|string',
+            'discount_percentage' => 'nullable|numeric|min:0', 
             'amount' => 'required|numeric|min:0',
             'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048000'
         ]);
-    
+
+
+
         $service = $this->serviceService->store($request);
 
         return response()->json([
@@ -52,12 +55,13 @@ class ServiceController extends Controller
         $request->validate([
             'service_name' => 'required|string|max:255',
             'description' => 'nullable|string',
+            'discount_percentage' => 'nullable|numeric|min:0',
             'amount' => 'required|numeric|min:0',
             'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048000'
         ]);
 
         $service = $this->serviceService->update($request, $id);
-
+       
         return response()->json([
             'status' => true,
             'message' => 'Service Updated',

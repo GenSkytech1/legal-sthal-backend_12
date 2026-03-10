@@ -5,9 +5,8 @@ use App\Http\Controllers\Api\CompanySettingController;
 use App\Http\Controllers\WebsiteContentController;
 use App\Http\Controllers\CustomPageController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\API\Service\ServiceController;
-use App\Http\Controllers\API\Service\PlanController;
-
+use App\Http\Controllers\Api\Service\ServiceController; 
+use App\Http\Controllers\Api\Service\PlanController; 
 
 use App\Http\Controllers\Api\LeadController;
 

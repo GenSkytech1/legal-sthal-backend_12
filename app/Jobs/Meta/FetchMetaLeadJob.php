@@ -1,5 +1,4 @@
 ﻿<?php
-
 namespace App\Jobs\Meta;
 
 use App\Models\Lead;

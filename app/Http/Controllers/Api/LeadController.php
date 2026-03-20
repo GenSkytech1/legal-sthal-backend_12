@@ -75,12 +75,29 @@ class LeadController extends Controller
      * Display a listing of the resource.
      * Accessible by admin (protected).
      */
-    public function index()
+    // public function index()
+    // {
+    //     $leads = Lead::orderBy('created_at', 'desc')->get();
+    //     return response()->json([
+    //         'status' => 'success',
+    //         'data' => $leads
+    //     ]);
+    // }
+    public function index(Request $request)
     {
-        $leads = Lead::orderBy('created_at', 'desc')->get();
+        $perPage = $request->get('per_page', 10); // default 10
+
+        $leads = Lead::orderBy('created_at', 'desc')->paginate($perPage);
+
         return response()->json([
             'status' => 'success',
-            'data' => $leads
+            'data' => $leads->items(), // actual data
+            'pagination' => [
+                'current_page' => $leads->currentPage(),
+                'last_page' => $leads->lastPage(),
+                'per_page' => $leads->perPage(),
+                'total' => $leads->total(),
+            ]
         ]);
     }
 }
